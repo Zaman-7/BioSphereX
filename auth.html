@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication - BioSphereX</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="auth-styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container container">
+            <div class="nav-brand">
+                <h1>BioSphereX</h1>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="#features">Features</a>
+                <a href="#workflow">Workflow</a>
+                <a href="#visualization">Visualization</a>
+                <a href="auth.html" class="nav-cta">Sign In</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Authentication Section -->
+    <section class="auth-section">
+        <div class="ocean-background">
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
+            <div class="floating-particles"></div>
+        </div>
+        
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h2 class="auth-title">Welcome to BioSphereX</h2>
+                    <p class="auth-subtitle">Dive into marine conservation</p>
+                </div>
+
+                <!-- Login Form -->
+                <div class="auth-form-container" id="loginForm">
+                    <h3 class="form-title">Sign In</h3>
+                    <form class="auth-form" id="loginFormElement">
+                        <div class="form-group">
+                            <label for="loginEmail">Email</label>
+                            <input type="email" id="loginEmail" name="email" required>
+                            <span class="form-icon">📧</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <input type="password" id="loginPassword" name="password" required>
+                            <span class="form-icon">🔒</span>
+                        </div>
+                        <div class="form-options">
+                            <label class="checkbox-container">
+                                <input type="checkbox" id="rememberMe">
+                                <span class="checkmark"></span>
+                                Remember me
+                            </label>
+                            <a href="#" class="forgot-password">Forgot password?</a>
+                        </div>
+                        <button type="submit" class="auth-btn primary">Sign In</button>
+                    </form>
+                    <div class="auth-switch">
+                        <p>Don't have an account? <a href="#" id="showSignup">Sign up</a></p>
+                    </div>
+                </div>
+
+                <!-- Signup Form -->
+                <div class="auth-form-container hidden" id="signupForm">
+                    <h3 class="form-title">Create Account</h3>
+                    <form class="auth-form" id="signupFormElement">
+                        <div class="form-group">
+                            <label for="signupName">Full Name</label>
+                            <input type="text" id="signupName" name="name" required>
+                            <span class="form-icon">👤</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="signupEmail">Email</label>
+                            <input type="email" id="signupEmail" name="email" required>
+                            <span class="form-icon">📧</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="signupPassword">Password</label>
+                            <input type="password" id="signupPassword" name="password" required>
+                            <span class="form-icon">🔒</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" required>
+                            <span class="form-icon">🔒</span>
+                        </div>
+                        <div class="form-options">
+                            <label class="checkbox-container">
+                                <input type="checkbox" id="agreeTerms" required>
+                                <span class="checkmark"></span>
+                                I agree to the <a href="#">Terms of Service</a>
+                            </label>
+                        </div>
+                        <button type="submit" class="auth-btn primary">Create Account</button>
+                    </form>
+                    <div class="auth-switch">
+                        <p>Already have an account? <a href="#" id="showLogin">Sign in</a></p>
+                    </div>
+                </div>
+
+                <!-- Social Login -->
+                <div class="social-login">
+                    <div class="divider">
+                        <span>or continue with</span>
+                    </div>
+                    <div class="social-buttons">
+                        <button class="social-btn google">
+                            <span class="social-icon">🌐</span>
+                            Google
+                        </button>
+                        <button class="social-btn github">
+                            <span class="social-icon">⚡</span>
+                            GitHub
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Marine Life Animation -->
+            <div class="marine-animation">
+                <div class="fish fish-1">🐠</div>
+                <div class="fish fish-2">🐟</div>
+                <div class="fish fish-3">🦈</div>
+                <div class="jellyfish jellyfish-1">🪼</div>
+                <div class="jellyfish jellyfish-2">🪼</div>
+                <div class="coral coral-1">🪸</div>
+                <div class="coral coral-2">🪸</div>
+                <div class="seaweed seaweed-1">🌿</div>
+                <div class="seaweed seaweed-2">🌿</div>
+            </div>
+        </div>
+    </section>
+
+    <script src="auth-script.js"></script>
+</body>
+</html>

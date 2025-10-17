@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioSphereX Dashboard - Marine Biodiversity Analysis</title>
+    <link rel="stylesheet" href="dashboard-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <i class="fas fa-water"></i>
+                <span>BioSphereX</span>
+            </div>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul>
+                <li class="nav-item active">
+                    <a href="#overview" class="nav-link" data-page="overview">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Overview</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#upload" class="nav-link" data-page="upload">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <span>Upload Data</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#analysis" class="nav-link" data-page="analysis">
+                        <i class="fas fa-brain"></i>
+                        <span>AI Analysis</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#results" class="nav-link" data-page="results">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Results</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#insights" class="nav-link" data-page="insights">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Insights</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#settings" class="nav-link" data-page="settings">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Navbar -->
+        <header class="top-navbar">
+            <div class="navbar-left">
+                <button class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search marine data, species, locations...">
+                </div>
+            </div>
+            
+            <div class="navbar-right">
+                <div class="notifications">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                </div>
+                
+                <div class="user-profile">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='20' fill='%2300bcd4'/%3E%3Ctext x='20' y='26' text-anchor='middle' fill='white' font-family='Arial' font-size='16' font-weight='bold'%3EMR%3C/text%3E%3C/svg%3E" alt="User Avatar" class="avatar">
+                    <div class="user-info">
+                        <span class="user-name">Marine Researcher</span>
+                        <span class="user-role">Senior Analyst</span>
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-content">
+            <!-- Overview Page -->
+            <div id="overview-page" class="page active">
+                <div class="page-header">
+                    <h1>Dashboard Overview</h1>
+                    <p>Monitor marine biodiversity analysis and ecosystem health</p>
+                </div>
+
+                <!-- Statistics Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-fish"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-number" data-target="1247">0</h3>
+                            <p class="stat-label">Total Species Detected</p>
+                            <span class="stat-change positive">+12% this month</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-number" data-target="89">0</h3>
+                            <p class="stat-label">Novel Taxa Identified</p>
+                            <span class="stat-change positive">+5% this month</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-number" data-target="87">0</h3>
+                            <p class="stat-label">Ecosystem Health Score</p>
+                            <span class="stat-change neutral">Stable</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 class="stat-number" data-target="2156">0</h3>
+                            <p class="stat-label">Data Files Processed</p>
+                            <span class="stat-change positive">+23% this month</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Biodiversity Trends</h3>
+                            <div class="chart-controls">
+                                <select class="time-filter">
+                                    <option value="7d">Last 7 days</option>
+                                    <option value="30d" selected>Last 30 days</option>
+                                    <option value="90d">Last 90 days</option>
+                                    <option value="1y">Last year</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="biodiversityChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Species Composition</h3>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="speciesChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Marine Hotspots & AI Insights -->
+                <div class="insights-grid">
+                    <div class="hotspots-card">
+                        <div class="card-header">
+                            <h3>Marine Biodiversity Hotspots</h3>
+                            <button class="view-all-btn">View All</button>
+                        </div>
+                        <div class="hotspots-container">
+                            <div class="hotspot-item">
+                                <div class="hotspot-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Great Barrier Reef</span>
+                                </div>
+                                <div class="hotspot-stats">
+                                    <span class="species-count">1,847 species</span>
+                                    <span class="health-score high">92% health</span>
+                                </div>
+                            </div>
+                            
+                            <div class="hotspot-item">
+                                <div class="hotspot-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Coral Triangle</span>
+                                </div>
+                                <div class="hotspot-stats">
+                                    <span class="species-count">2,234 species</span>
+                                    <span class="health-score medium">78% health</span>
+                                </div>
+                            </div>
+                            
+                            <div class="hotspot-item">
+                                <div class="hotspot-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Galápagos Islands</span>
+                                </div>
+                                <div class="hotspot-stats">
+                                    <span class="species-count">1,456 species</span>
+                                    <span class="health-score high">89% health</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="ai-insights-card">
+                        <div class="card-header">
+                            <h3>AI Conservation Insights</h3>
+                            <div class="ai-status">
+                                <div class="ai-indicator active"></div>
+                                <span>AI Active</span>
+                            </div>
+                        </div>
+                        <div class="insights-content">
+                            <div class="insight-item">
+                                <div class="insight-icon">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <div class="insight-text">
+                                    <h4>Coral Bleaching Alert</h4>
+                                    <p>Elevated water temperatures detected in sector 7-A. Recommend immediate monitoring and intervention protocols.</p>
+                                    <span class="insight-time">2 hours ago</span>
+                                </div>
+                            </div>
+                            
+                            <div class="insight-item">
+                                <div class="insight-icon">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <div class="insight-text">
+                                    <h4>Species Migration Pattern</h4>
+                                    <p>Unusual migration patterns observed in tuna populations. Suggests potential feeding ground shifts.</p>
+                                    <span class="insight-time">5 hours ago</span>
+                                </div>
+                            </div>
+                            
+                            <div class="insight-item">
+                                <div class="insight-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="insight-text">
+                                    <h4>Conservation Success</h4>
+                                    <p>Marine protected area showing 15% increase in biodiversity over the past quarter.</p>
+                                    <span class="insight-time">1 day ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="activity-section">
+                    <div class="section-header">
+                        <h3>Recent Activity</h3>
+                        <button class="view-all-btn">View All</button>
+                    </div>
+                    
+                    <div class="activity-grid">
+                        <div class="activity-card">
+                            <div class="activity-icon upload">
+                                <i class="fas fa-upload"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>Data Upload Completed</h4>
+                                <p>Pacific_Survey_2024.csv - 15,847 records processed</p>
+                                <span class="activity-time">30 minutes ago</span>
+                            </div>
+                            <div class="activity-status success">
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-card">
+                            <div class="activity-icon analysis">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>AI Analysis Complete</h4>
+                                <p>Biodiversity assessment for Great Barrier Reef sector 12-C</p>
+                                <span class="activity-time">2 hours ago</span>
+                            </div>
+                            <div class="activity-status success">
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-card">
+                            <div class="activity-icon report">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>Report Generated</h4>
+                                <p>Monthly biodiversity summary report for Q4 2024</p>
+                                <span class="activity-time">4 hours ago</span>
+                            </div>
+                            <div class="activity-status success">
+                                <i class="fas fa-download"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Pages (Placeholder) -->
+            <div id="upload-page" class="page">
+                <div class="page-header">
+                    <h1>Upload Data</h1>
+                    <p>Upload marine biodiversity datasets for analysis</p>
+                </div>
+                <div class="upload-area">
+                    <div class="upload-zone">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h3>Drag & Drop Files Here</h3>
+                        <p>Or click to browse files</p>
+                        <button class="upload-btn">Choose Files</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="analysis-page" class="page">
+                <div class="page-header">
+                    <h1>AI Analysis</h1>
+                    <p>Advanced AI-powered marine biodiversity analysis</p>
+                </div>
+                <div class="coming-soon">
+                    <i class="fas fa-brain"></i>
+                    <h3>AI Analysis Dashboard</h3>
+                    <p>Coming Soon</p>
+                </div>
+            </div>
+
+            <div id="results-page" class="page">
+                <div class="page-header">
+                    <h1>Analysis Results</h1>
+                    <p>View and export analysis results</p>
+                </div>
+                <div class="coming-soon">
+                    <i class="fas fa-chart-bar"></i>
+                    <h3>Results Dashboard</h3>
+                    <p>Coming Soon</p>
+                </div>
+            </div>
+
+            <div id="insights-page" class="page">
+                <div class="page-header">
+                    <h1>Conservation Insights</h1>
+                    <p>AI-generated conservation recommendations</p>
+                </div>
+                <div class="coming-soon">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Insights Dashboard</h3>
+                    <p>Coming Soon</p>
+                </div>
+            </div>
+
+            <div id="settings-page" class="page">
+                <div class="page-header">
+                    <h1>Settings</h1>
+                    <p>Configure your dashboard preferences</p>
+                </div>
+                <div class="coming-soon">
+                    <i class="fas fa-cog"></i>
+                    <h3>Settings Panel</h3>
+                    <p>Coming Soon</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Ocean Background Elements -->
+    <div class="ocean-background">
+        <div class="wave wave-1"></div>
+        <div class="wave wave-2"></div>
+        <div class="wave wave-3"></div>
+    </div>
+
+    <script src="dashboard-script.js"></script>
+</body>
+</html>
